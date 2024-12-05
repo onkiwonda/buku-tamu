@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data Tamu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edit Data Tamu</h1>
+        </header>
+
+        <form action="{{ url_for('edit', id=tamu['id']) }}" method="POST" class="guestbook-form">
+            <label for="tanggal">Tanggal Datang:</label>
+            <input type="date" id="tanggal" name="tanggal" value="{{ tamu['tanggal'] }}" required>
+            
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" value="{{ tamu['nama'] }}" required>
+            
+            <label for="tujuan">Tujuan:</label>
+            <input type="text" id="tujuan" name="tujuan" value="{{ tamu['tujuan'] }}" required>
+            
+            <label for="instansi">Instansi:</label>
+            <input type="text" id="instansi" name="instansi" value="{{ tamu['instansi'] }}" required>
+            
+            <label for="keperluan">Keperluan:</label>
+            <input type="text" id="keperluan" name="keperluan" value="{{ tamu['keperluan'] }}" required>
+            
+            <button type="submit">Simpan Perubahan</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Tamu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='Kominfo.png') }}" alt="Logo Kominfo" class="logo">
+            <h1>Buku Tamu</h1>
+        </header>
+
+        <form action="/" method="POST" class="guestbook-form">
+            <label for="tanggal">Tanggal Datang:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+            
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="tujuan">Tujuan:</label>
+            <input type="text" id="tujuan" name="tujuan" required>
+            
+            <label for="instansi">Instansi:</label>
+            <input type="text" id="instansi" name="instansi" required>
+            
+            <label for="keperluan">Keperluan:</label>
+            <input type="text" id="keperluan" name="keperluan" required>
+            
+            <button type="submit">Kirim</button>
+        </form>
+
+        <h2>Data Tamu</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
+                    <th>Tujuan</th>
+                    <th>Instansi</th>
+                    <th>Keperluan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tamu in guestbook_data %}
+                <tr>
+                    <td>{{ tamu['tanggal'] }}</td>
+                    <td>{{ tamu['nama'] }}</td>
+                    <td>{{ tamu['tujuan'] }}</td>
+                    <td>{{ tamu['instansi'] }}</td>
+                    <td>{{ tamu['keperluan'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
